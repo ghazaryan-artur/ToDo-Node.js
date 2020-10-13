@@ -1,0 +1,14 @@
+html
+  head
+    title= title
+    link(rel="stylesheet" type="text/css" href="/edit.css")
+  body
+
+    main
+      div
+        form(action=`/edit/${id}` method='POST')
+          div.container
+            input(name='name', value=`${name}`)
+            input(style="display:none" name='id', value=id)
+            input.save-button(type='submit' value='Save')
+    script

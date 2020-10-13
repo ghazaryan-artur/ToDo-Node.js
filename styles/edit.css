@@ -1,0 +1,21 @@
+.container {
+    margin: 200px auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+input {
+    border: 1px lightseagreen solid;
+    border-radius: 2px;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+input[type=submit]{
+    background: lightseagreen;
+    border: 1px #0a7e78 solid;
+
+}
+input[type=submit]:hover {
+    background: #0a7e78;
+}

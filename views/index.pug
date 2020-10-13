@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        link(rel="stylesheet" type="text/css" href="/index.css")
+    body
+    
+        div.container
+            h1 todos
+            form(action="/create", method="post")        
+                div.downArrow 
+                    div
+                        label
+                div.inputs-container
+                    input.to-do-input(type="text" name="todoName" placeholder="What needs to be done?")
+                    input.submit(type="submit")
+
+        div.container
+            ul
+                each item, index in todos
+                    li  
+                        div.todo-field          
+                            
+                            span= item.name
+                        div.todo-buttons
+                            button.editB(onclick=`editTodo(${item.id})`) Edit
+                            button.deleteB(onclick=`deleteTodo(${item.id})`) Delete
+
+        script.
+            function deleteTodo (id) {
+                console.log(id)
+                const response = fetch(`/delete/${id}`, {
+                    method: 'DELETE'
+                });
+                location.href = "/";
+                return response;
+            }
+            function editTodo(id){
+                location.href = `/edit/${id}`;
+            }
+
